@@ -11,11 +11,11 @@
 
 # knights-to-see-you
 
-Godot Rust 2D Platform game, base on [Brackeys&rsquo; How to make a Video Game Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0).
+Godot Rust 2D Platform game using GDExtension and gdext, based on [Brackeys&rsquo; How to make a Video Game Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0).
 
 ## Usage
 
-Import `godot` folder in Godot Engine 4 edit to run.
+Import `godot` folder in Godot Engine 4 to run.
 
 ## Issues
 
