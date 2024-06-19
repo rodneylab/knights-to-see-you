@@ -1,0 +1,14 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["Rodney Johnson <ask@rodneylab.com>"]
+edition = "2021"
+license = "BSD-3-Clause"
+repository = "https://github.com/rodneylab/knights-to-see-you"
+description = "Godot Rust game"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+godot = { git = "https://github.com/godot-rust/gdext", rev = "bc5c69e179b4ed63442bff31663a0b0e58d02910", features = ["api-4-2"] }
