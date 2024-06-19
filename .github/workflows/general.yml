@@ -83,6 +83,14 @@ jobs:
           toolchain: ${{ matrix.msrv }}
       - name: cargo +${{ matrix.msrv }} check
         run: cargo check
+  static-checks:
+    name: 'Static checks'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: Scony/godot-gdscript-toolkit@9c4fa1cd596149d71e9d867416f3bb7b3a2fed3e # 4.2.2
+      - run: gdformat --check godot/
+      - run: gdlint godot/
   coverage:
     name: Code coverage
     runs-on: ubuntu-latest
