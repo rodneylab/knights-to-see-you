@@ -13,6 +13,8 @@
 
 Godot Rust 2D Platform game using GDExtension and gdext, based on [Brackeys&rsquo; How to make a Video Game Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0).
 
+See the post on <a href="https://rodneylab.com/godot-rust-gdext/">using gdext Rust bindings with Godot</a> for more on this project and resources on creating a Rust GDExtension dynamic library for your Godot game. If you have any questions, feel free to drop a comment at the bottom of that page.
+
 ## Usage
 
 Import `godot` folder in Godot Engine 4 to run.
