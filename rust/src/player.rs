@@ -15,6 +15,12 @@ struct Player {
     base: Base<CharacterBody2D>,
 }
 
+enum MovementDirection {
+    Left,
+    Neutral,
+    Right,
+}
+
 #[godot_api]
 impl ICharacterBody2D for Player {
     fn init(base: Base<CharacterBody2D>) -> Self {
@@ -22,6 +28,7 @@ impl ICharacterBody2D for Player {
         Self {
             speed: 130.0,
             jump_velocity: -300.0,
+
             base,
         }
     }
@@ -57,28 +64,29 @@ impl ICharacterBody2D for Player {
 
         // Get input direction
         let direction = input.get_axis("move_left".into(), "move_right".into());
+        let movement_direction = match direction {
+            val if val < -f32::EPSILON => MovementDirection::Left,
+            val if (-f32::EPSILON..f32::EPSILON).contains(&val) => MovementDirection::Neutral,
+            val if val >= f32::EPSILON => MovementDirection::Right,
+            _ => unreachable!(),
+        };
+
         let mut animated_sprite = self
             .base()
             .get_node_as::<AnimatedSprite2D>("AnimatedSprite2D");
 
         // Flip the sprite to match movement direction
-        match direction {
-            val if val < -f32::EPSILON => {
-                animated_sprite.set_flip_h(true);
-            }
-            val if (-f32::EPSILON..f32::EPSILON).contains(&val) => {}
-            val if val > f32::EPSILON => {
-                animated_sprite.set_flip_h(false);
-            }
-            _ => unreachable!(),
+        match movement_direction {
+            MovementDirection::Left => animated_sprite.set_flip_h(true),
+            MovementDirection::Neutral => {}
+            MovementDirection::Right => animated_sprite.set_flip_h(false),
         }
 
         // Play animation
         let animation = if self.base().is_on_floor() {
-            if direction == 0.0 {
-                "idle"
-            } else {
-                "run"
+            match movement_direction {
+                MovementDirection::Neutral => "idle",
+                MovementDirection::Left | MovementDirection::Right => "run",
             }
         } else {
             "jump"
@@ -87,10 +95,11 @@ impl ICharacterBody2D for Player {
 
         // Apply movement
         #[allow(clippy::cast_possible_truncation)]
-        let new_velocity_x = if (-f32::EPSILON..f32::EPSILON).contains(&direction) {
-            move_toward(f64::from(velocity_x), 0.0, self.speed) as f32
-        } else {
-            direction * (self.speed) as f32
+        let new_velocity_x = match movement_direction {
+            MovementDirection::Neutral => {
+                move_toward(f64::from(velocity_x), 0.0, self.speed) as f32
+            }
+            MovementDirection::Left | MovementDirection::Right => direction * (self.speed) as f32,
         };
 
         self.base_mut().set_velocity(Vector2 {
