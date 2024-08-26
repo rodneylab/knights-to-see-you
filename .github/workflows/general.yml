@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: Scony/godot-gdscript-toolkit@eec5608c280a83510e57ab554ed4c6b1dd95be82 # 4.3.0
+      - uses: Scony/godot-gdscript-toolkit@792ec443ed90a82fdff02465edefa128174b0107 # 4.3.1
       - run: gdformat --check godot/
       - run: gdlint godot/
   coverage:
