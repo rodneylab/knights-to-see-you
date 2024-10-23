@@ -31,8 +31,6 @@ repos:
       - exclude: .vscode
         id: check-json
       - id: no-commit-to-branch
-    repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
   - repo: https://github.com/EmbarkStudios/cargo-deny
     rev: 0.14.24
     hooks:
