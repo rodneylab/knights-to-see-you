@@ -576,7 +576,7 @@ offset_bottom = -122.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_wj2pi")
 theme_override_font_sizes/font_size = 8
-text = "Amost there...
+text = "Almost there...
 "
 
 [node name="Label4" type="Label" parent="Labels"]
