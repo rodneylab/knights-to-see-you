@@ -43,7 +43,7 @@ impl ICharacterBody2D for Player {
 
         // handle jump and gravity
         let new_velocity_y = if self.base().is_on_floor() {
-            if input.is_action_pressed("jump".into()) {
+            if input.is_action_pressed("jump") {
                 #[allow(clippy::cast_possible_truncation)]
                 {
                     self.jump_velocity as f32
@@ -53,7 +53,7 @@ impl ICharacterBody2D for Player {
             }
         } else {
             let gravity = ProjectSettings::singleton()
-                .get_setting("physics/2d/default_gravity".into())
+                .get_setting("physics/2d/default_gravity")
                 .try_to::<f64>()
                 .expect("Should be able to represent default gravity as a 32-bit float");
             #[allow(clippy::cast_possible_truncation)]
@@ -63,7 +63,7 @@ impl ICharacterBody2D for Player {
         };
 
         // Get input direction
-        let direction = input.get_axis("move_left".into(), "move_right".into());
+        let direction = input.get_axis("move_left", "move_right");
         let movement_direction = match direction {
             val if val < -f32::EPSILON => MovementDirection::Left,
             val if (-f32::EPSILON..f32::EPSILON).contains(&val) => MovementDirection::Neutral,
@@ -91,7 +91,7 @@ impl ICharacterBody2D for Player {
         } else {
             "jump"
         };
-        animated_sprite.play_ex().name(animation.into()).done();
+        animated_sprite.play_ex().name(animation).done();
 
         // Apply movement
         #[allow(clippy::cast_possible_truncation)]
