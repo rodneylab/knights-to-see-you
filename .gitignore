@@ -18,3 +18,4 @@ mono_crash.*.json
 /target
 
 .DS_Store
+rusty-tags.vi
