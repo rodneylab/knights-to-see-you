@@ -2,11 +2,11 @@
 name = "rust"
 version = "0.1.0"
 authors = ["Rodney Johnson <ask@rodneylab.com>"]
-edition = "2021"
+edition = "2024"
 license = "BSD-3-Clause"
 repository = "https://github.com/rodneylab/knights-to-see-you"
-# godot v0.2.0 requires 1.80.0 or newer
-rust-version = "1.78"
+# godot v0.3.3 requires 1.87.0 or newer
+rust-version = "1.87"
 description = "Godot Rust game"
 
 [lib]
