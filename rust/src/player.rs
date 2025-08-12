@@ -3,7 +3,7 @@ use godot::{
     classes::{AnimatedSprite2D, CharacterBody2D, ICharacterBody2D, Input, ProjectSettings},
     global::{godot_print, move_toward},
     obj::{Base, WithBaseField},
-    prelude::{godot_api, GodotClass},
+    prelude::{GodotClass, godot_api},
 };
 
 #[derive(GodotClass)]
