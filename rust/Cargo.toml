@@ -13,4 +13,4 @@ description = "Godot Rust game"
 crate-type = ["cdylib"]
 
 [dependencies]
-godot = { version = "0.3.4", features = ["api-4-2"] }
+godot = { version = "0.3.5", features = ["api-4-2"] }
