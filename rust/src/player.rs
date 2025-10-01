@@ -2,7 +2,7 @@ use godot::{
     builtin::Vector2,
     classes::{AnimatedSprite2D, CharacterBody2D, ICharacterBody2D, Input, ProjectSettings},
     global::{godot_print, move_toward},
-    obj::{Base, WithBaseField},
+    obj::{Base, Singleton, WithBaseField},
     prelude::{GodotClass, godot_api},
 };
 
