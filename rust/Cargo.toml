@@ -5,12 +5,12 @@ authors = ["Rodney Johnson <ask@rodneylab.com>"]
 edition = "2024"
 license = "BSD-3-Clause"
 repository = "https://github.com/rodneylab/knights-to-see-you"
-# godot v0.3.3 requires 1.87.0 or newer
-rust-version = "1.87"
+# godot v0.5.1 requires 1.94.0 or newer
+rust-version = "1.94"
 description = "Godot Rust game"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-godot = { version = "0.4.5", features = ["api-4-2"] }
+godot = { version = "0.5.1", features = ["api-4-2"] }
